@@ -80,13 +80,13 @@ RSpec.describe 'Tags Api', type: :request do
                 expect(response).to have_http_status(204)
             end
         end
+    end
 
-        describe 'DELETE /tags/:id' do
-            before { delete "/tags/#{tag_id}" }
-            
-            it 'returns status code 204' do
-                expect(response).to have_http_status(204)
-            end
+    describe 'DELETE /tags/:id' do
+        before { delete "/tags/#{tag_id}" }
+        
+        it 'returns status code 204' do
+            expect(response).to have_http_status(204)
         end
     end
 end
