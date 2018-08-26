@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :emails
+  post '/eStatus/:id', to: 'emails#change_status'
+
+  resources :news
+  resources :abouts
 end

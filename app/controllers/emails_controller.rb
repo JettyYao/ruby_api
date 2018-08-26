@@ -1,8 +1,8 @@
 class EmailsController < ApplicationController
-    before_action :set_email, only: [:show, :destroy]
+    before_action :set_email, only: [:show, :destroy, :change_status]
 
     def index
-        @emails = Email.all
+        @emails = Email.order(isread: :asc)
         json_response(@emails)
     end
 
@@ -18,6 +18,10 @@ class EmailsController < ApplicationController
     def destroy
         @email.destroy
         head :no_content
+    end
+
+    def change_status
+        @email.update(isread: true)
     end
 
     private
